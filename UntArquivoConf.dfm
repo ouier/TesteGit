@@ -1,0 +1,122 @@
+object FrmArquivoConf: TFrmArquivoConf
+  Left = 164
+  Top = 141
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Configura'#231#227'o do Sistema'
+  ClientHeight = 128
+  ClientWidth = 450
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label2: TLabel
+    Left = 14
+    Top = 34
+    Width = 91
+    Height = 20
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = 'Arq. Execut'#225'vel: '
+    Transparent = True
+    Layout = tlCenter
+  end
+  object bsSkinSpeedButtonSair: TbsSkinSpeedButton
+    Left = 229
+    Top = 81
+    Width = 70
+    Height = 30
+    SkinDataName = 'bigtoolbutton'
+    DefaultFont.Charset = DEFAULT_CHARSET
+    DefaultFont.Color = clWindowText
+    DefaultFont.Height = 14
+    DefaultFont.Name = 'Arial'
+    DefaultFont.Style = []
+    DefaultWidth = 0
+    DefaultHeight = 0
+    UseSkinFont = True
+    UseSkinSize = True
+    UseSkinFontColor = True
+    WidthWithCaption = 0
+    WidthWithoutCaption = 0
+    ImageIndex = 0
+    RepeatMode = False
+    RepeatInterval = 100
+    Transparent = True
+    Flat = True
+    AllowAllUp = False
+    Down = False
+    GroupIndex = 0
+    Caption = '&Sair..'
+    ShowCaption = True
+    NumGlyphs = 1
+    Spacing = 1
+    OnClick = bsSkinSpeedButtonSairClick
+  end
+  object bsSkinSpeedButtonGravar: TbsSkinSpeedButton
+    Left = 150
+    Top = 81
+    Width = 66
+    Height = 30
+    SkinDataName = 'bigtoolbutton'
+    DefaultFont.Charset = DEFAULT_CHARSET
+    DefaultFont.Color = clWindowText
+    DefaultFont.Height = 14
+    DefaultFont.Name = 'Arial'
+    DefaultFont.Style = []
+    DefaultWidth = 0
+    DefaultHeight = 0
+    UseSkinFont = True
+    UseSkinSize = True
+    UseSkinFontColor = True
+    WidthWithCaption = 0
+    WidthWithoutCaption = 0
+    ImageIndex = 0
+    RepeatMode = False
+    RepeatInterval = 100
+    Transparent = True
+    Flat = True
+    AllowAllUp = False
+    Down = False
+    GroupIndex = 0
+    Caption = '&Gravar'
+    ShowCaption = True
+    NumGlyphs = 1
+    Spacing = 1
+    OnClick = bsSkinSpeedButtonGravarClick
+  end
+  object EditNomeExec: TEdit
+    Left = 107
+    Top = 34
+    Width = 300
+    Height = 21
+    TabOrder = 0
+  end
+  object ButtonBusca: TButton
+    Left = 408
+    Top = 34
+    Width = 28
+    Height = 21
+    Caption = '...'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    OnClick = ButtonBuscaClick
+  end
+  object OpenDialogo: TOpenDialog
+    DefaultExt = '*.Exe'
+    Filter = 'Execut'#225'veis|*.exe'
+    Left = 56
+    Top = 64
+  end
+end
