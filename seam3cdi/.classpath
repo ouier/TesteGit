@@ -32,5 +32,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="G:/DesenvolvimentoRafael/git/local/seam3cdi/src/main/resources"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

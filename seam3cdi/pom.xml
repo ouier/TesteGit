@@ -16,6 +16,7 @@
 		<!-- The version of Weld extensions in use -->
 		<weld.extensions.version>1.0.0-CR2</weld.extensions.version>
 		<hibernate.version>4.2.1.Final</hibernate.version>
+		<seam3.version>3.0.0.Final</seam3.version>
 	</properties>
 
 	<repositories>
@@ -95,6 +96,7 @@
 		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
 			<artifactId>weld-servlet</artifactId>
+			<version>1.1.8.Final</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -154,7 +156,66 @@
 			<version>${hibernate.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- Seam Solder provides convenient, portable CDI extensions such as an 
+			injectable logger -->
+		<dependency>
+			<groupId>org.jboss.seam.solder</groupId>
+			<artifactId>seam-solder</artifactId>
+			<version>${seam3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.seam.faces</groupId>
+			<artifactId>seam-faces</artifactId>
+			<version>${seam3.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>seam-international</artifactId>
+					<groupId>org.jboss.seam.international</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.seam.faces</groupId>
+			<artifactId>seam-faces-api</artifactId>
+			<version>${seam3.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>seam-international</artifactId>
+					<groupId>org.jboss.seam.international</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.seam.faces</groupId>
+			<artifactId>seam-faces-impl</artifactId>
+			<version>${seam3.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>seam-international</artifactId>
+					<groupId>org.jboss.seam.international</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.seam.persistence</groupId>
+			<artifactId>seam-persistence</artifactId>
+			<version>3.0.0.Beta2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.seam.transaction</groupId>
+			<artifactId>seam-transaction</artifactId>
+			<version>3.1.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.ejb3</groupId>
+			<artifactId>jboss-ejb3-api</artifactId>
+			<scope>compile</scope>
+			<version>3.1.0</version>
+		</dependency>
+
 	</dependencies>
+
 
 	<build>
 		<finalName>seam3cdi</finalName>
@@ -200,7 +261,7 @@
 					<!-- You can save changes in a file or class and refresh your browser 
 						to view the changes. -->
 					<scanIntervalSeconds>3</scanIntervalSeconds>
-					
+
 					<webAppConfig>
 						<extraClasspath>G:/deploy/maven/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2.jar,G:/deploy/maven/com/sun/faces/jsf-api/2.1.9/jsf-api-2.1.9.jar,G:/deploy/maven/com\sun/faces/jsf-impl/2.1.9/jsf-impl-2.1.9.jar,G:/deploy/maven/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar</extraClasspath>
 					</webAppConfig>
@@ -245,19 +306,13 @@
 					<artifactId>hibernate-jpa-2.0-api</artifactId>
 					<version>1.0.1.Final</version>
 				</dependency>
-				<!-- EJB -->
-				<dependency>
-					<groupId>org.jboss.ejb3</groupId>
-					<artifactId>jboss-ejb3-api</artifactId>
-					<scope>compile</scope>
-					<version>3.1.0</version>
-				</dependency>
+
 				<!-- C3P0 -->
 				<dependency>
-				   <groupId>c3p0</groupId>
-				   <artifactId>c3p0</artifactId>
-				   <version>0.9.1.2</version>
-				   <scope>runtime</scope>
+					<groupId>c3p0</groupId>
+					<artifactId>c3p0</artifactId>
+					<version>0.9.1.2</version>
+					<scope>runtime</scope>
 				</dependency>
 			</dependencies>
 		</profile>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="corpo">
+		<h:outputText value="#{hello.hello}" />
+		
+		<h:dataTable var="pessoa" value="#{hello.listaPessoas}">
+		
+			<h:column>
+				<f:facet name="header">Código</f:facet>
+				<h:outputText value="#{pessoa.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{pessoa.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Data Nasc.</f:facet>
+				<h:outputText value="#{pessoa.dataNascimento}" />
+			</h:column>
+		
+		</h:dataTable>
+		
+	</ui:define>
+</ui:composition>
