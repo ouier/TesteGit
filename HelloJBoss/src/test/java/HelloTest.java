@@ -47,6 +47,7 @@ public class HelloTest {
 	@Test
 	public void testeMensagem() throws Exception{
 		Assert.assertNotNull("Mensagem não é nula", hello.getHello());
+		System.out.println(hello.getHello());
 	}
 	
 	
