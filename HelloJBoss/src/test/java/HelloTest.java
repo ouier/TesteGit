@@ -55,8 +55,8 @@ public class HelloTest {
 	}
 	
 	@Test
-	public void geraErro2() throws Exception{
-		Assert.assertEquals(1, 0);
+	public void consertaGeraErro2() throws Exception{
+		Assert.assertEquals(0, 0);
 	}
 	
 	
