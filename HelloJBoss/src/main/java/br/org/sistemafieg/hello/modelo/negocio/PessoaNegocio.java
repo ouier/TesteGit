@@ -30,13 +30,13 @@ public class PessoaNegocio implements Serializable{
 	
 	@PostConstruct
 	public void init(){
-		pessoaRepositorio = (PessoaRepository) repositoryProducer.createRepository(PessoaRepository.class);
+		//pessoaRepositorio = (PessoaRepository) repositoryProducer.createRepository(PessoaRepository.class);
 	}
 	
 	
 	public List<Pessoa> listarPessoas(){
-		//List<Pessoa> lista =(List<Pessoa>) dao.getEntityManager().createQuery("select p from Pessoa p").getResultList();
-		List<Pessoa> lista = pessoaRepositorio.findAll();
+		List<Pessoa> lista =(List<Pessoa>) dao.getEntityManager().createQuery("select p from Pessoa p").getResultList();
+		//List<Pessoa> lista = pessoaRepositorio.findAll();
 		if(lista==null)
 			lista = new ArrayList<Pessoa>();
 		System.err.print("==================LISTA DE PESSOAS===================");
