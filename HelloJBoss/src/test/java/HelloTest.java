@@ -44,5 +44,10 @@ public class HelloTest {
 		System.out.println("HELLO NÃO É NULO");
 	}
 	
+	@Test
+	public void gerarErro() throws Exception{
+		throw new Exception("Erro Proposital");
+	}
+	
 	
 }
