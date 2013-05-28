@@ -41,12 +41,12 @@ public class HelloTest {
 	@Test
 	public void testeHello(){
 		Assert.assertNotNull(hello);
-		System.out.println("HELLO N√O … NULO");
+		System.out.println("HELLO N√ÉO √â NULO");
 	}
 	
 	@Test
 	public void testeMensagem() throws Exception{
-		Assert.assertNotNull("Mensagem n„o È nula", hello.getHello());
+		Assert.assertNotNull("Mensagem n√£o √© nula", hello.getHello());
 		System.out.println(hello.getHello());
 	}
 	@Test
