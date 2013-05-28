@@ -45,8 +45,8 @@ public class HelloTest {
 	}
 	
 	@Test
-	public void gerarErro() throws Exception{
-		throw new Exception("Erro Proposital");
+	public void testeMensagem() throws Exception{
+		Assert.assertNotNull("Mensagem não é nula", hello.getHello());
 	}
 	
 	
