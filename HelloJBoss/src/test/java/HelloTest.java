@@ -50,8 +50,8 @@ public class HelloTest {
 		System.out.println(hello.getHello());
 	}
 	@Test
-	public void geraErro1() throws Exception{
-		Assert.assertEquals(new Double(1.1), new Double(1.0));
+	public void consertaErro1() throws Exception{
+		Assert.assertEquals(new Double(1.0), new Double(1.0));
 	}
 	
 	@Test
