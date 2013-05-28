@@ -49,6 +49,15 @@ public class HelloTest {
 		Assert.assertNotNull("Mensagem não é nula", hello.getHello());
 		System.out.println(hello.getHello());
 	}
+	@Test
+	public void geraErro1() throws Exception{
+		Assert.assertEquals(new Double(1.1), new Double(1.0));
+	}
+	
+	@Test
+	public void geraErro2() throws Exception{
+		Assert.assertEquals(1, 0);
+	}
 	
 	
 }
