@@ -27,6 +27,13 @@ import br.org.sistemafieg.springldap.ldap.ADAuthentication;
 @ContextConfiguration("file:src/main/resources/META-INF/root-context.xml") 
 public class LdapTest {
 
+    public static String URL_DOMINIO = "ldap://dco-01.sistemafieg.net:389/DC=sistemafieg,DC=net";
+    public static String DOMINIO = "sistemafieg\\";
+    public static String USUARIO_1 = DOMINIO+"rafael souza";
+    public static String SENHA_USUARIO_1 = "ouierounou";
+    public static String USUARIO_2 = DOMINIO+"cristiano vieira";
+    public static String SENHA_USUARIO_2 = "tudopossoemdeus";
+
 	@Autowired
 	private WebApplicationContext wac;
 	
@@ -55,34 +62,34 @@ public class LdapTest {
 	
 	@Test
 	public void testeAuthSucc1(){
-		assertTrue(adAuth.autenticar("dominio\\user", "senhavalida"));
+		assertTrue(adAuth.autenticar(USUARIO_1, SENHA_USUARIO_1));
 	}
 
 	
 	@Test
 	public void testeAuthSucc2(){
-		assertTrue(adAuth.autenticar("dominio\\user", "senhavalida"));
+		assertTrue(adAuth.autenticar(USUARIO_2, SENHA_USUARIO_2));
 	}
 	
 	@Test
 	public void testeAuthFail1(){
-		assertFalse(adAuth.autenticar("dominio\\user", "senhainvalida"));
+		assertFalse(adAuth.autenticar(USUARIO_1, "senhainvalida"));
 	}
 	
 	@Test
 	public void testeFail2(){
-		assertFalse(adAuth.autenticar("dominio\\user", "falha4"));
+		assertFalse(adAuth.autenticar(USUARIO_2, "falha4"));
 	}
 	
 	@Test
 	public void javaPuroAcc(){
-		assertTrue(testar("dominio\\user", "senhavalida"));
+		assertTrue(testar(USUARIO_1, SENHA_USUARIO_1));
 		
 	}
 	
 	@Test
 	public void javaPuroFail(){
-		assertFalse(testar("dominio\\user", "senha errada"));
+		assertFalse(testar(SENHA_USUARIO_1, "senha errada"));
 	}
 	
 	public boolean testar(String user, String password){
@@ -91,7 +98,7 @@ public class LdapTest {
 	        // Set up the environment for creating the initial context
 	        Hashtable<String, String> env = new Hashtable<String, String>();
 	        env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-	        env.put(Context.PROVIDER_URL, "ldap://url-dominio:389/DC=sistemafieg,DC=net");
+	        env.put(Context.PROVIDER_URL, URL_DOMINIO);
 	        // 
 	        env.put(Context.SECURITY_AUTHENTICATION, "simple");
 	        env.put(Context.SECURITY_PRINCIPAL, user);
