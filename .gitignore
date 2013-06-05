@@ -36,3 +36,8 @@ __history
 *.gex
 *.scc
 *.bak
+.settings
+.idea
+.classpath
+.project
+*.iml
