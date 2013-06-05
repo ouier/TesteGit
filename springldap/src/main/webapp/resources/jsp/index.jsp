@@ -13,7 +13,7 @@
 		<div class="login">
 			<form>
 				<fieldset>
-					<legend>Efetue o login</legend>
+					<legend>Efetue o login - LDAP</legend>
 					
 					<label for="login">Usuário:</label>
 					<input type="text" id="login" value=""/>
