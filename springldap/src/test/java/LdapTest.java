@@ -26,12 +26,7 @@ import br.org.sistemafieg.springldap.ldap.ADAuthentication;
 @WebAppConfiguration
 @ContextConfiguration("file:src/main/resources/META-INF/root-context.xml")
 public class LdapTest {
-	
-	public static final String PROXY_HOST =  "10.21.152.13";
-	public static final String PROXY_PORT =  "3128";
-	public static final String PROXY_USER =  "sistemafieg\rafael souza";
-	public static final String PROXY_PASS =  "ouierounou";
-	
+
 	@Autowired
 	private WebApplicationContext wac;
 	
@@ -43,12 +38,7 @@ public class LdapTest {
 	@Before
 	public void setup(){
 		this.mockMvc = webAppContextSetup(this.wac).build();
-		Properties properties = System.getProperties();
-		properties.put("http.proxyHost", PROXY_HOST);
-		properties.put("http.proxyPort", PROXY_PORT);
-		properties.put("http.proxyUser", PROXY_USER);
-		properties.put("http.proxyPassword", PROXY_PASS);
-		
+
 	}
 	
 	@Test
