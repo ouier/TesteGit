@@ -44,24 +44,24 @@ public class LdapTest {
 	@Test
 	public void testeAdAuth(){
 		assertNotNull(adAuth);
-		System.out.println("N„o È nulo");
+		System.out.println("N√£o √© nulo");
 	}
 	
 	@Test
 	public void testeMockMvc(){
 		assertNotNull(mockMvc);
-		System.out.println("mockMvc n„o È nulo");
+		System.out.println("mockMvc n√£o √© nulo");
 	}
 	
 	@Test
 	public void testeAuthSucc1(){
-		assertTrue(adAuth.autenticar("dominio\\user", "ouierounou"));
+		assertTrue(adAuth.autenticar("dominio\\user", "senhavalida"));
 	}
 
 	
 	@Test
 	public void testeAuthSucc2(){
-		assertTrue(adAuth.autenticar("dominio\\user, "senhavalida"));
+		assertTrue(adAuth.autenticar("dominio\\user", "senhavalida"));
 	}
 	
 	@Test
