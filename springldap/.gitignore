@@ -36,3 +36,10 @@ __history
 *.gex
 *.scc
 *.bak
+.settings
+.idea
+.classpath
+.project
+*.iml
+ISSComponentHelper.ini
+odnt Rich Text Format.ico
