@@ -1,8 +1,11 @@
 package client;
 
-import com.google.gwt.user.client.ui.*;
-import com.sencha.gxt.widget.core.client.FramedPanel;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.TextBox;
+import com.sencha.gxt.widget.core.client.box.MessageBox;
 import com.sencha.gxt.widget.core.client.button.TextButton;
+import com.smartgwt.client.widgets.IButton;
 import org.jboss.errai.ioc.client.api.EntryPoint;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
@@ -31,5 +34,13 @@ public class Index extends Composite{
         nome.setWidth("500px");
         nome.setText("Funcionou mesmo? É mentira!!!!!!!!!!");
         RootPanel.get("geral").add(this);
+        MessageBox msgBox = new MessageBox("Título","Message box message :D");
+        RootPanel.get().add(msgBox);
+        msgBox.show();
+
+        TextButton btn = new TextButton("Digite aqui alguma coisa");
+        RootPanel.get().add(btn);
+
+
     }
 }

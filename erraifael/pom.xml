@@ -22,6 +22,7 @@
         <slf4j.version>1.6.1</slf4j.version>
         <uel.impl.version>2.1.2-b04</uel.impl.version>
         <gxt.version>3.0.1</gxt.version>
+        <smartgwt.version>3.1</smartgwt.version>
     </properties>
 
     <dependencies>
@@ -29,6 +30,11 @@
             <groupId>org.jboss.errai</groupId>
             <artifactId>errai-data-binding</artifactId>
             <version>${errai.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.smartgwt</groupId>
+            <artifactId>smartgwt</artifactId>
+            <version>${smartgwt.version}</version>
         </dependency>
         <dependency>
             <groupId>com.sencha.gxt</groupId>
@@ -1387,6 +1393,11 @@
             <id>sencha-repo</id>
             <name>sencha-repo</name>
             <url>https://oss.sonatype.org/content/repositories/snapshots/com/sencha/gxt/</url>
+        </repository>
+        <repository>
+            <id>smartgwt-repo</id>
+            <name>smartgwt-repo</name>
+            <url>http://www.smartclient.com/maven2</url>
         </repository>
     </repositories>
 
