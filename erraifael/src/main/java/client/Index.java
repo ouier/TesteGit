@@ -2,13 +2,9 @@ package client;
 
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.TextBox;
-import com.sencha.gxt.widget.core.client.box.MessageBox;
-import com.sencha.gxt.widget.core.client.button.TextButton;
-import com.smartgwt.client.widgets.IButton;
 import org.jboss.errai.ioc.client.api.EntryPoint;
-import org.jboss.errai.ui.shared.api.annotations.DataField;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import server.SampleService;
+import ui.FormTeste;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -22,25 +18,21 @@ import javax.inject.Inject;
  */
 
 @EntryPoint
-@Templated("#template")
 public class Index extends Composite{
 
     @Inject
-    @DataField
-    private TextBox nome;
+    SampleService sampleService;
 
     @PostConstruct
     public void init(){
-        nome.setWidth("500px");
-        nome.setText("Funcionou mesmo? É mentira!!!!!!!!!!");
-        RootPanel.get("geral").add(this);
-        MessageBox msgBox = new MessageBox("Título","Message box message :D");
-        RootPanel.get().add(msgBox);
-        msgBox.show();
 
-        TextButton btn = new TextButton("Digite aqui alguma coisa");
-        RootPanel.get().add(btn);
+        System.out.println("====================> INIT TESTE");
 
+        FormTeste formulario = new FormTeste();
+        RootPanel.get("formulario").add(formulario);
+        formulario.show();
+        formulario.setSampleService(sampleService);
 
+        System.out.println("====================> FIM TESTE");
     }
 }

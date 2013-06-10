@@ -32,6 +32,11 @@
             <version>${errai.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.jboss.errai</groupId>
+            <artifactId>errai-jpa-client</artifactId>
+            <version>${errai.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.smartgwt</groupId>
             <artifactId>smartgwt</artifactId>
             <version>${smartgwt.version}</version>
@@ -1234,7 +1239,7 @@
                 <version>${gwt.maven.version}</version>
                 <configuration>
                     <logLevel>INFO</logLevel>
-                    <runTarget>App.html</runTarget>
+                    <runTarget>Index.html</runTarget>
                     <extraJvmArgs>-Xmx512m -XX:MaxPermSize=256m</extraJvmArgs>
                     <soyc>false</soyc>
                     <hostedWebapp>src/main/webapp/</hostedWebapp>
