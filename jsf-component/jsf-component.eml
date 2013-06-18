@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/target/test-classes"/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<testFolder url="file://$MODULE_DIR$/src/test/java"/>
+		<excludeFolder url="file://$MODULE_DIR$/target"/>
+	</contentEntry>
+	<lib name="Maven: javax.el:el-api:2.2" scope="PROVIDED"/>
+	<lib name="Maven: org.glassfish.web:el-impl:2.2" scope="PROVIDED"/>
+	<lib name="Maven: javax:javaee-api:6.0" scope="PROVIDED"/>
+	<levels>
+		<level name="Maven: javax.el:el-api:2.2" value="project"/>
+		<level name="Maven: org.glassfish.web:el-impl:2.2" value="project"/>
+		<level name="Maven: com.sun.faces:jsf-api:2.1.9" value="project"/>
+		<level name="Maven: com.sun.faces:jsf-impl:2.1.9" value="project"/>
+		<level name="Maven: javax.servlet:servlet-api:2.5" value="project"/>
+		<level name="Maven: javax:javaee-api:6.0" value="project"/>
+		<level name="Maven: org.mortbay.jetty:jetty-naming:6.1.25" value="project"/>
+		<level name="Maven: javax.mail:mail:1.4" value="project"/>
+		<level name="Maven: javax.activation:activation:1.1" value="project"/>
+	</levels>
+</component>
