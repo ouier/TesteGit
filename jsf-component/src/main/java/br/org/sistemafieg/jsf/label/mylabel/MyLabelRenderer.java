@@ -32,8 +32,15 @@ public class MyLabelRenderer extends Renderer {
         if(label.isTemBorda()){
             borda = "border: 1px dotted "+label.getCor()+";";
         }
-        writer.write("<div class=\"myLabel\" style=\"color:"+label.getCor()+";"+borda+"\">"+label.getRotulo()+"</div>");
+        writer.write("<div class=\"myLabel\" style=\"color:"+label.getCor()+";"+borda+"\">"+label.getRotulo());
         writer.flush();
 
+    }
+
+    @Override
+    public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
+        ResponseWriter writer = context.getResponseWriter();
+        writer.write("</div>");
+        writer.flush();
     }
 }
