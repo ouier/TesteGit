@@ -5,7 +5,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:sf="http://sistemafieg.org.br/components/">
+      xmlns:sf="http://sistemafieg.org.br/components/"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j">
 
 <h:head>
     <title>Simple JSF Facelets page</title>
@@ -17,6 +19,9 @@
     <sf:myLabel rotulo="Teste de nested children" cor="blue">
         <div>Llfkajslfajslkfjaslkfjaslkfjasdf</div>
     </sf:myLabel>
+    <h:form>
+        <rich:editor id="editor" toolbar="full" rendered="true" value="Teste de richfaces"/>
+    </h:form>
 
 </h:body>
 
