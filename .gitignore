@@ -42,3 +42,6 @@ __history
 .project
 *.iml
 target
+ISSComponentHelper.ini
+odnt Rich Text Format.ico
+
