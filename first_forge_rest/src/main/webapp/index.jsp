@@ -7,8 +7,22 @@
 <title>Insert title here</title>
 </head>
 <body>
+	
+	<button onclick="extjs()">Testar ExtJS</button>
+	<button onclick="dhtmlx()">Testar DHTMLX</button>
+	<button onclick="dojoToolkit()">Testar DOJO TOOLKIT</button>
+
 	<script type="text/javascript">
-		window.location.href='forgeext/forge.jsp';
+		function extjs(){
+			window.location.href='forgeext/forge.jsp';
+		}
+		function dhtmlx(){
+			window.location.href="dhtmlx/forge.jsp"
+		}
+		function dojoToolkit(){
+			window.location.href="dojo/dojo.jsp"
+		}
+		
 	</script>
 </body>
 </html>
