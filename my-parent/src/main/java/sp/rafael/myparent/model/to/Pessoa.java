@@ -1,14 +1,13 @@
 package sp.rafael.myparent.model.to;
 
-import javax.persistence.Entity;
 import java.io.Serializable;
-import javax.persistence.Id;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Column;
-import javax.persistence.Version;
-import java.lang.Override;
-import java.util.Date;
+import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -117,15 +116,9 @@ public class Pessoa implements Serializable
    }
 
    @Override
-   public String toString()
-   {
-      String result = getClass().getSimpleName() + " ";
-      if (nome != null && !nome.trim().isEmpty())
-         result += "nome: " + nome;
-      if (nomeMae != null && !nomeMae.trim().isEmpty())
-         result += ", nomeMae: " + nomeMae;
-      if (nomePai != null && !nomePai.trim().isEmpty())
-         result += ", nomePai: " + nomePai;
-      return result;
-   }
+public String toString() {
+	return "Pessoa [id=" + id + ", nome=" + nome + ", dataNascimento="
+			+ dataNascimento + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
+			+ "]";
+}
 }
