@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="cadastro" text="Cadastro">
+		<item id="cd_pessoa" text="Pessoas" />
+		<item id="cd_sep1" type="separator"/>
+	</item>
+	<item id="movimento" text="Movimento">
+		<item id="mv_pessoa" text="Pessoas"/>
+	</item>
+</menu>
