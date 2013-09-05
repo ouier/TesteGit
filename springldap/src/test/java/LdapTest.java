@@ -27,12 +27,12 @@ import br.org.sistemafieg.springldap.ldap.ADAuthentication;
 @ContextConfiguration("file:src/main/resources/META-INF/root-context.xml") 
 public class LdapTest {
 
-    public static String URL_DOMINIO = "ldap://dco-01.sistemafieg.net:389/DC=sistemafieg,DC=net";
-    public static String DOMINIO = "sistemafieg\\";
-    public static String USUARIO_1 = DOMINIO+"rafael souza";
-    public static String SENHA_USUARIO_1 = "ouierounou";
-    public static String USUARIO_2 = DOMINIO+"cristiano vieira";
-    public static String SENHA_USUARIO_2 = "tudopossoemdeus";
+    public static String URL_DOMINIO = "ldap://IP_SERVIDOR:389/DC=dominio,DC=net";
+    public static String DOMINIO = "dominio\\";
+    public static String USUARIO_1 = DOMINIO+"usuario1";
+    public static String SENHA_USUARIO_1 = "senha1";
+    public static String USUARIO_2 = DOMINIO+"usuario2";
+    public static String SENHA_USUARIO_2 = "senha2";
 
 	@Autowired
 	private WebApplicationContext wac;
