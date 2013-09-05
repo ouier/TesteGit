@@ -1,4 +1,7 @@
-package ldaptest;
+/**
+Classe utilitária para referencia de login/search no LDAP
+Esqueci de colocar a referência de onde baixei este arquivo. :'( agora não sei onde encontrar
+*/
 
 import java.util.Hashtable;
 import javax.naming.Context;
