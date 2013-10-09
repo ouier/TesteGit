@@ -8,7 +8,8 @@ $('document').ready(function(){
 
 function doLogin(){
 	
-	var login = "sistemafieg\\"+$("#login").val();
+	//var login = "sistemafieg\\"+$("#login").val();
+	var login = $("#login").val();
 	var passw = $("#password").val();
 	
 	$.ajax({
@@ -24,4 +25,16 @@ function doLogin(){
 		type: "POST"
 	});
 	
+}
+
+function doSearch(){
+	var procura = $("#procura").val();
+	$.ajax({
+		url: this.URL+'/procura'	,
+		data: {'procura':procura},
+		complete: function(data, xhr, status){
+			$(".resultado").html(data.responseText.replace(/,/gi,'<br>'));
+		}											,
+		type: "POST"
+	});
 }

@@ -25,7 +25,16 @@
 						<input type="button" value="Entrar" onclick="doLogin()"/>
 					</div>
 				</fieldset>
-				
+				<fieldset style="margin-top:20px;">
+					<legend>Procurar usuários no LDAP</legend>
+					
+					<label for="procura">Usuário:</label>
+					<input type="text" id="procura"/>
+					<div class="painel_botoes">
+						<input type="button" value="Procurar" onclick="doSearch()"/>
+					</div>
+				</fieldset>
+				<span class="resultado"></span> 
 				
 			</form>
 		</div>

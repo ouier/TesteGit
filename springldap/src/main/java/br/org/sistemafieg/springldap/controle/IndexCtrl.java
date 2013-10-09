@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.org.sistemafieg.springldap.ldap.ADAuthentication;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
 @Controller
 public class IndexCtrl {
 	
@@ -26,5 +23,10 @@ public class IndexCtrl {
 	@ResponseBody
 	public String doLogin(@RequestParam("login")String login, @RequestParam("password") String password){
 		return adAuth.autenticar(login, password)?"true":"false";
+	}
+	@RequestMapping(value="/procura",method=RequestMethod.POST)
+	@ResponseBody
+	public String doProcura(@RequestParam("procura")String procura){
+		return adAuth.getDnForUser(procura);
 	}
 }
