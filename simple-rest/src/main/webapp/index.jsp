@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" charset="utf-8"/>
 <title>Cadastro de pessoas</title>
 </head>
-<script language="javascript" src="http://10.21.16.63/angular/angular.min.js"></script>
+<script language="javascript" src="angular.min.js"></script>
 <script language="javascript" src="index.js"></script>
 </script>
 <body>
