@@ -1,5 +1,39 @@
 var URL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname.split("/")[1];
 
+
+function FormPessoas($scope,$http){
+
+	$scope.pessoa = {};
+	
+	
+	
+	$scope.recarregar = function(){
+		$http.get(URL+'/api/pessoas').success(function(data){
+			$scope.pessoas = data;
+		});
+		$scope.pessoa = {};
+	};
+	
+	$scope.recarregar();
+	
+	$scope.cadastrar= function(pessoa){
+		
+		pessoa.idade = pessoa.idade.replace(/\D/gi,'');
+		$http({
+			method: 'POST',
+			url: URL+'/api/pessoas',
+			data: JSON.stringify(pessoa),
+		}).success(function(data){
+			console.log(data);
+			$scope.recarregar();
+		});
+	};
+	
+	
+}
+
+
+/*
 $('document').ready(function(){
 	document.getElementById('btnCadastro').onclick = cadastrar;
 });
@@ -26,3 +60,4 @@ function submit(metodo,object,callback){
 		type: metodo
 	});
 }
+*/
