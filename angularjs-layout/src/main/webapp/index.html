@@ -2,6 +2,7 @@
 <html ng-app id="ng-app">
 
     <head>
+        <meta charset="utf-8"/>
         <link href="http://localhost/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
         <link href="css/estilo.css" rel="stylesheet"/>
 
@@ -11,14 +12,79 @@
     </head>
     <body ng-controller="IndexCTRL">
 
-            
-            <div class="row topo">
-                <div class="col-md-12">TOpo</div>
-            </div>
-             <div class="row conteudo">
-                <div class="col-md-3">Esquerda</div>
-                <div class="col-full">Centro</div>
+        <div class="container">
+
+            <!-- Static navbar -->
+            <div class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">{{projeto.nome}}</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Cadastro</a></li>
+                        <li><a href="#">Movimento</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Relatórios <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                 <li class="dropdown-header">Cadastrais</li>
+                                <li><a href="#">Item #1</a></li>
+                                <li><a href="#">Item #2</a></li>
+                                <li><a href="#">Item #3</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Auditoria</li>
+                                <li><a href="#">Item #4</a></li>
+                                <li><a href="#">Item #5</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Documentos</li>
+                                <li><a href="#">Item #6</a></li>
+                                <li><a href="#">Item #7</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!--/.nav-collapse -->
             </div>
 
+            <!-- Main component for a primary marketing message or call to action -->
+            <div class="jumbotron">
+                <h1>Cadastro de Pessoas</h1>
+                    
+                <div class="row">
+                    <div class="col-xs-2">
+                        <label>Nome:</label>
+                    </div>
+                    <div class="col-xs-5">
+                        <input type="text" ng-model="pessoa.nome"/>
+                    </div>
+                    <div class="col-xs-1">
+                        <label>Idade:</label>
+                    </div>
+                    <div class="col-xs-1">
+                        <input type="text" ng-model="pessoa.idade"/>
+                    </div>
+                </div>
+                <div class="row">
+                     <div class="col-xs-2">
+                        <label>Nome mãe:</label>
+                    </div>
+                    <div class="col-xs-5">
+                        <input type="text" ng-model="pessoa.nomeMae"/>
+                    </div>
+                </div>
+                <div class="row row-botao">
+                    <div class="col-xs-1">
+                        <a class="btn btn-lg btn-primary" href="#">Cadastrar</a>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- /container -->
+        <script type="text/javascript" src="http://localhost/bootstrap/assets/js/jquery.js"></script>
+        <script type="text/javascript" src="http://localhost/bootstrap/dist/js/bootstrap.min.js"></script>
+        
     </body>
 </html>

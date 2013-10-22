@@ -3,17 +3,20 @@ body,html{
 }
 
 [class*="col-"] {
-/*  padding-top: 15px;
-  padding-bottom: 15px;*/
+  //padding-top: 15px;
+  padding-bottom: 15px;
   background-color: #eee;
-  border: 1px solid #ddd;
-  height: 100%;
+//  border: 1px solid #ddd;
+//  height: 100%;
+}
+input[type="text"]{
+    width: 100%;
 }
 
-.topo{
-    height: 30px;
+.row-botao{
+    padding-top: 15px;
 }
 
-.conteudo {
-    height: 99%;
+.jumbotron > h1{
+    padding-bottom: 15px;
 }
