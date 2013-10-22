@@ -9,6 +9,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
@@ -27,6 +28,18 @@ public class PessoaEndpoint {
 	public List<Pessoa> getPessoas(){
 		return pessoas;
 	}
+
+	@GET
+	@Path("/{id:[0-9][0-9]*}")
+	@Produces("application/json")
+	public Response findById(@PathParam("id") Long id) {
+		try{
+			Pessoa entity = pessoas.get(Integer.valueOf(id.toString()));
+			return Response.ok(entity).build();
+		}catch(Exception e){
+			return Response.status(Response.Status.NOT_FOUND).build();
+		}
+	}
 	
 	@POST
 	@Consumes("application/json")
@@ -35,7 +48,7 @@ public class PessoaEndpoint {
 			pessoas = new ArrayList<Pessoa>();
 		}
 		pessoas.add(pessoa);
-		return Response.created(UriBuilder.fromResource(PessoaEndpoint.class).path(String.valueOf(pessoa.getId())).build()).build();
+		return Response.created(UriBuilder.fromResource(PessoaEndpoint.class).path(String.valueOf(pessoas.size()-1)).build()).build();
 	}
 	
 	
