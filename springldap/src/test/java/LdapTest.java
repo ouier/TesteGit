@@ -1,14 +1,5 @@
-import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.assertNotNull;
-import static junit.framework.Assert.assertTrue;
+import static junit.framework.Assert.assertNotSame;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
-
-import java.util.Hashtable;
-import java.util.Properties;
-
-import javax.naming.Context;
-import javax.naming.directory.DirContext;
-import javax.naming.directory.InitialDirContext;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,6 +18,8 @@ import br.org.sistemafieg.springldap.ldap.ADAuthentication;
 @ContextConfiguration("file:src/main/resources/META-INF/root-context.xml") 
 public class LdapTest {
 
+	private static final String URL_DOMINIO="ldap://10.21.152.1:389";
+	
 	@Autowired
 	private WebApplicationContext wac;
 	
@@ -41,7 +34,7 @@ public class LdapTest {
 
 	}
 	
-	@Test
+	/*@Test
 	public void testeAdAuth(){
 		assertNotNull(adAuth);
 		System.out.println("Não é nulo");
@@ -91,7 +84,8 @@ public class LdapTest {
 	        // Set up the environment for creating the initial context
 	        Hashtable<String, String> env = new Hashtable<String, String>();
 	        env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-	        env.put(Context.PROVIDER_URL, "ldap://url-dominio:389/DC=sistemafieg,DC=net");
+	        //env.put(Context.PROVIDER_URL, "ldap://url-dominio:389/DC=sistemafieg,DC=net");
+	        env.put(Context.PROVIDER_URL, URL_DOMINIO);
 	        // 
 	        env.put(Context.SECURITY_AUTHENTICATION, "simple");
 	        env.put(Context.SECURITY_PRINCIPAL, user);
@@ -112,6 +106,14 @@ public class LdapTest {
 	    {
 	    	return false;
 	    }
-	}
+	}*/
+        
+        @Test
+        public void fazProcuraDoUsuario(){
+            String usu = "rafaelsouza";
+            String resultado = adAuth.getDnForUser(usu);
+            System.err.println(resultado);
+            assertNotSame("ERRO", "ZERO", resultado);
+        }
 	
 }

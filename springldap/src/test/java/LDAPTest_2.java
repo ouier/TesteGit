@@ -4,6 +4,7 @@ Esqueci de colocar a referência de onde baixei este arquivo. :'( agora não sei
 */
 
 import java.util.Hashtable;
+
 import javax.naming.Context;
 import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
@@ -55,7 +56,7 @@ public class LDAPTest_2 {
         
         LdapContext ctx = new InitialLdapContext();
         
-        LDAPTest ldap = new LDAPTest();
+        LDAPTest_2 ldap = new LDAPTest_2();
         
         //1) lookup the ldap account
         SearchResult srLdapUser = ldap.findAccountByAccountName(ctx, ldapSearchBase, ldapAccountToLookup);
@@ -78,7 +79,7 @@ public class LDAPTest_2 {
 
         SearchResult searchResult = null;
         if(results.hasMoreElements()) {
-             searchResult = (SearchResult) results.nextElement();
+             searchResult = results.nextElement();
 
             //make sure there is not another item available, there should be only 1 match
             if(results.hasMoreElements()) {
@@ -100,7 +101,7 @@ public class LDAPTest_2 {
         NamingEnumeration<SearchResult> results = ctx.search(ldapSearchBase, searchFilter, searchControls);
 
         if(results.hasMoreElements()) {
-            SearchResult searchResult = (SearchResult) results.nextElement();
+            SearchResult searchResult = results.nextElement();
 
             //make sure there is not another item available, there should be only 1 match
             if(results.hasMoreElements()) {
