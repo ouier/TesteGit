@@ -1,0 +1,33 @@
+[{
+	"id":1,
+	"text":"Menu",
+	"children":[{
+		"id":11,
+		"text":"Cadastros",
+		"state":"closed",
+		"children":[{
+			"id":111,
+			"text":"Usuários"
+		},{
+			"id":112,
+			"text":"Sistemas"
+		},{
+			"id":113,
+			"text":"Unidades"
+		}]
+	},{
+		"id":2,
+		"text":"Movimento",
+		"state":"closed",
+		"children":[{
+			"id":211,
+			"text":"Usuários"
+		},{
+			"id":212,
+			"text":"Sistemas"
+		},{
+			"id":213,
+			"text":"Unidades"
+		}]
+	}]
+}]

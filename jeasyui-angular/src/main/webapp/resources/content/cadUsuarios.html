@@ -1,0 +1,35 @@
+<script type="text/javascript" src="resources/js/cadUsuarios.js"></script>
+<script type="text/javascript" src="resources/angular/angular.min.js"></script>
+<table ng-controller="UsuarioCTRL" ng-app>
+	<tr>
+		<td>Nome:</td>
+		<td>
+			<input ng-model="usuario.nome" class="easyui-validatebox" type="text" name="name" style="width: 300px" data-options="required:true"/>
+		</td>
+	</tr>
+	<tr>
+		<td>Email:</td>
+		<td>
+			<input class="easyui-validatebox" type="text" name="email" style="width: 300px" data-options="required:true,validType:'email'" ng-model="usuario.email"/>
+		</td>
+	</tr>
+	<tr>
+		<td>Nome mãe:</td>
+		<td>
+			<input ng-model="usuario.nomeMae" class="easyui-validatebox" type="text" name="subject" style="width: 300px" data-options="required:true"/>
+		</td>
+	</tr>
+	<tr>
+		<td>Observações:</td>
+		<td><textarea ng-model="usuario.observacoes" name="message" style="height:60px;"></textarea></td>
+	</tr>
+	<tr>
+		<td>
+			<a href="#" ng-click="novo()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-new'">Novo</a>
+			<a href="#" ng-click="cadastrar(usuario)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'">Salvar</a>
+			<a href="#" ng-click="fechar()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cancel'">Fechar</a>
+			
+		</td>
+	</tr>
+</table>
+

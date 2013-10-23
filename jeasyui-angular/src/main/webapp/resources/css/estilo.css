@@ -1,0 +1,31 @@
+*{
+	font-size:12px;
+}
+body {
+    font-family:helvetica,tahoma,verdana,sans-serif;
+    padding:20px;
+    font-size:13px;
+    margin:0;
+}
+
+.topo{
+	height:60px;
+	background:#B3DFDA;
+	padding:10px;
+}
+.sidebar{
+	width:150px;
+	padding:10px;
+}
+.content{
+	
+}
+.footer{
+	height:50px;
+	background:#A9FACD;
+	padding:10px;
+}
+
+.icon-new{
+	background:url('../img/new.png') no-repeat center center;
+}
