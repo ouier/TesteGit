@@ -15,22 +15,39 @@ Ext.define('Hello.view.Mensagem',{
 				title: "Envie email ",
 				layout: "vbox",
 				xtype: "formpanel",
+				itemId: "formMsg",
 				items: [
 					{
 						xtype: "fieldset",
 						title: "Mensagem",
 						items: [
                                 {
-                                    xtype: 'textfield',
-                                    label: 'Remetente'
+                                    xtype: 'emailfield',
+                                    required: true,
+                                    placeHolder: 'email@example.com',
+                                    label: 'Remetente',
+                                    name: 'from',
+                                    store: 'Mensagem',
+                                    displayField: 'from',
+                                    valueField: 'from'
                                 },
                                 {
-                                    xtype: 'emailfield',
-                                    label: 'Email'
+                                	xtype: 'emailfield',
+                                	label: 'E-mail',
+                                	required: true,
+                                	placeHolder: 'email@example.com',
+                                    name: 'to',
+                                    store: 'Mensagem',
+                                    displayField: 'to',
+                                    valueField: 'to'
                                 },
                                 {
                                     xtype: 'textareafield',
-                                    label: 'Mensagem'
+                                    label: 'Mensagem',
+                                    name: 'message',
+                                    store: 'Mensagem',
+                                    displayField: 'message',
+                                    valueField: 'message'
                                 }
                         ]
 					},
