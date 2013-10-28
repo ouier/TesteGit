@@ -25,7 +25,7 @@ Ext.define('Hello.view.Mensagem',{
                                     xtype: 'emailfield',
                                     required: true,
                                     placeHolder: 'email@example.com',
-                                    label: 'Remetente',
+                                    label: 'De',
                                     name: 'from',
                                     store: 'Mensagem',
                                     displayField: 'from',
@@ -33,7 +33,7 @@ Ext.define('Hello.view.Mensagem',{
                                 },
                                 {
                                 	xtype: 'emailfield',
-                                	label: 'E-mail',
+                                	label: 'Para',
                                 	required: true,
                                 	placeHolder: 'email@example.com',
                                     name: 'to',

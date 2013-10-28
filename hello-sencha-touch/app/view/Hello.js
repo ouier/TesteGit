@@ -9,17 +9,24 @@ Ext.define('Hello.view.Hello', {
  	    items:[
 	    	{
 	    		xtype: "mensagem",
-	    		iconCls: "home",
+	    		iconCls: "compose",
 	    		title: "Mensagem"
 
 	    	},
 	    	{
 	    		xtype: 'panel',
-	    		iconCls: 'action',
-	    		title: "Conteúdo",
-	    		html:[
-	    			"Content"
+	    		iconCls: 'info',
+	    		title: "Sobre",
+	    		items: [
+	    			{
+		    			xtype: 'panel',
+		    			html:[
+		    				"Este é apenas um Hello Word. Não há comunicação com o servidor. "+
+		    				"Talvez seja implantada esta funcionalidade utilizando REST :D"
+		    			]
+		    		}
 	    		]
+	    		
 	    	}
 	    ]
 	}
