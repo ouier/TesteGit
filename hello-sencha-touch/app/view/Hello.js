@@ -23,7 +23,7 @@ Ext.define('Hello.view.Hello', {
 		    			html:[
 		    				"Este é apenas um Hello Word. Não há comunicação com o servidor. "+
 		    				"Talvez seja implantada esta funcionalidade utilizando REST :D"
-		    			]
+		    			].join("")
 		    		}
 	    		]
 	    		
