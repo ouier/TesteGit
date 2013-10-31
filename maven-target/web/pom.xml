@@ -27,6 +27,11 @@
                             <filtering>false</filtering>
                             <targetPath>/</targetPath>
                         </resource>
+                        <resource>
+                            <directory>${basedir}/src/main/resources-${estagio}/</directory>
+                            <filtering>false</filtering>
+                            <targetPath>/WEB-INF/classes</targetPath>
+                        </resource>
                     </webResources>
                 </configuration>
             </plugin>
@@ -43,7 +48,7 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${basedir}/src/main/java-${regional.version}</source>
+                                <source>${basedir}/src/main/java-${regional}</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -53,31 +58,5 @@
     </build>
 
     <profiles>
-        <profile>
-            <id>go</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <regional.version>go</regional.version>
-            </properties>
-            <build>
-                <plugins>
-
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>rj</id>
-            <properties>
-                <regional.version>rj</regional.version>
-            </properties>
-            <build>
-                <plugins>
-
-                </plugins>
-            </build>
-        </profile>
-
     </profiles>
 </project>
