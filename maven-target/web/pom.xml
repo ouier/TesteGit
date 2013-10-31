@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <artifactId>web</artifactId>
+    <packaging>war</packaging>
+
+    <parent>
+        <artifactId>maven-target</artifactId>
+        <groupId>maven-target</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <build>
+        <finalName>maven-target</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <directory>${rootPath}/../flex/target/</directory>
+                            <filtering>false</filtering>
+                            <targetPath>/</targetPath>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${basedir}/src/main/java-${regional.version}</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>go</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <regional.version>go</regional.version>
+            </properties>
+            <build>
+                <plugins>
+
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>rj</id>
+            <properties>
+                <regional.version>rj</regional.version>
+            </properties>
+            <build>
+                <plugins>
+
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
+</project>
