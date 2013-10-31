@@ -20,15 +20,6 @@
     </properties>
 
     <profiles>
-        <profile>
-            <id>go</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>rj</id>
-        </profile>
 
     </profiles>
 </project>
