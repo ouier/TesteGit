@@ -1,0 +1,16 @@
+/target
+*.jar
+*.class
+classes/
+lib/
+CVS/
+.settings
+.project
+.classpath
+/.externalToolBuilders
+.externalToolBuilders/
+.idea/
+*.iml
+target/
+flex/target
+war/target
