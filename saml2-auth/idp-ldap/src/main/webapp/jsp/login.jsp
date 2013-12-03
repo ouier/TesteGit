@@ -12,7 +12,7 @@
             <label for="login">Login:</label>
             <input type="text" id="login" name="j_username" />
             <label for="senha">Senha:</label>
-            <input type="text" id="senha" name="j_password"/>
+            <input type="password" id="senha" name="j_password"/>
             <input type="submit" value="Login" name="submit">
         </fieldset>
     </form>

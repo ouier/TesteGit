@@ -12,5 +12,9 @@
 		<version>0.0.1</version>
 	</parent>
 
+    <build>
+        <finalName>${project.artifactId}</finalName>
+    </build>
+
 </project>
 

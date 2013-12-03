@@ -11,7 +11,9 @@
 	<modules>
 		<module>idp</module>
 		<module>pessoa</module>
-	</modules>
+        <module>idp-ldap</module>
+        <module>pessoa-ldap</module>
+    </modules>
 
     <properties>
         <java.version>1.7</java.version>
