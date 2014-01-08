@@ -15,6 +15,7 @@
 	</container>
 	<extension qualifier="webdriver">
 		<property name="browser">firefox</property>
+<!--The flag which indicates that remote session should be reused between subsequent executions - gives opportunity to reuse browser window for debugging and/or test execution speed-up.-->
 		<property name="remoteReusable">true</property>
 		<property name="remoteAddress">http://localhost:4444/wd/hub</property>
 <!-- timeout for Graphene.waitGui method - waits for a short time, typically waits for client-side operations-->
