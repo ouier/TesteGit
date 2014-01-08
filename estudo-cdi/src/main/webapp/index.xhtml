@@ -7,8 +7,8 @@
 <h:body>
 
     <h:form prependId="false" id="formulario">
-	    <h:messages id="msg" showDetail="true" showSummary="true"/>
-        Nome: <h:inputText id="nome" value="#{pessoaMB.pessoa.nome}" />
+        <h:messages id="msg" showDetail="true" showSummary="true"/>
+            Nome: <h:inputText id="nome" value="#{pessoaMB.pessoa.nome}"/>
         <h:commandButton id="botao" value="Clique aqui" action="#{pessoaMB.listarPessoas()}">
             <f:ajax render="@form" execute="@form"/>
         </h:commandButton>

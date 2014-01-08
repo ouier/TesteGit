@@ -7,6 +7,8 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
 
 /**
  * Created by Rafael on 05/01/14.
@@ -30,6 +32,8 @@ public class Pessoa extends BaseEntity<Long>{
     private List<Endereco> enderecos;
 
     @Column(name="NOME")
+    @Length(min = 3,max=100,message = "ERRO: O nome é requerido!")
+    @NotNull
     public String getNome() {
         return nome;
     }
@@ -37,7 +41,7 @@ public class Pessoa extends BaseEntity<Long>{
     public void setNome(String nome) {
         this.nome = nome;
     }
-
+    
     @Column(name="DATA_NASC")
     public Date getDataNascimento() {
         return dataNascimento;
