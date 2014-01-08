@@ -17,7 +17,7 @@
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 
         <!-- Define the version of the JBoss BOMs we want to import to specify
-            tested stacks. -->
+        tested stacks. -->
         <version.jboss.bom.eap>6.2.0.GA</version.jboss.bom.eap>
 
         <!-- other plugin versions -->
@@ -27,19 +27,42 @@
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.source>1.6</maven.compiler.source>
-
+        
+        <!-- Arquillian -->
+        <version.org.jboss.arquillian>1.1.1.Final</version.org.jboss.arquillian>
+        <version.org.jboss.arquillian.drone>1.2.1.Final</version.org.jboss.arquillian.drone>
+        <version.org.jboss.arquillian.graphene2>2.0.0.Final</version.org.jboss.arquillian.graphene2>
+        <version.arquillian.drone>1.2.1.Final</version.arquillian.drone>     
+        <version.selenium>2.35.0</version.selenium> 
+               
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- JBoss distributes a complete set of Java EE 6 APIs including a Bill
-                of Materials (BOM). A BOM specifies the versions of a "stack" (or a collection)
-                of artifacts. We use this here so that we always get the correct versions
-                of artifacts. Here we use the jboss-javaee-6.0-with-tools stack (you can
-                read this as the JBoss stack of the Java EE 6 APIs, with some extras tools
-                for your project, such as Arquillian for testing) and the jboss-javaee-6.0-with-hibernate
-                stack you can read this as the JBoss stack of the Java EE 6 APIs, with extras
-                from the Hibernate family of projects) -->
+            
+            <!-- Arquillian Core dependencies -->
+             <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>${version.org.jboss.arquillian}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian.extension</groupId>
+                <artifactId>arquillian-drone-bom</artifactId>
+                <version>${version.arquillian.drone}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian.selenium</groupId>
+                <artifactId>selenium-bom</artifactId>
+                <version>${version.selenium}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            
             <dependency>
                 <groupId>org.jboss.bom.eap</groupId>
                 <artifactId>jboss-javaee-6.0-with-tools</artifactId>
@@ -53,6 +76,13 @@
                 <version>${version.jboss.bom.eap}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.spec</groupId>
+                <artifactId>jboss-javaee-web-6.0</artifactId>
+                <version>3.0.0.Final</version>
+                <type>pom</type>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -81,10 +111,10 @@
     <dependencies>
 
         <!-- First declare the APIs we depend on and need for compilation. All
-            of them are provided by JBoss EAP 6 -->
+        of them are provided by JBoss EAP 6 -->
 
         <!-- Import the CDI API, we use provided scope as the API is included in
-            JBoss EAP 6 -->
+        JBoss EAP 6 -->
         <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
@@ -92,7 +122,7 @@
         </dependency>
 
         <!-- Import the Common Annotations API (JSR-250), we use provided scope
-            as the API is included in JBoss EAP 6 -->
+        as the API is included in JBoss EAP 6 -->
         <dependency>
             <groupId>org.jboss.spec.javax.annotation</groupId>
             <artifactId>jboss-annotations-api_1.1_spec</artifactId>
@@ -100,7 +130,7 @@
         </dependency>
 
         <!-- Import the JAX-RS API, we use provided scope as the API is included
-            in JBoss EAP 6 -->
+        in JBoss EAP 6 -->
         <dependency>
             <groupId>org.jboss.spec.javax.ws.rs</groupId>
             <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
@@ -108,7 +138,7 @@
         </dependency>
 
         <!-- Import the JPA API, we use provided scope as the API is included in
-            JBoss EAP 6 -->
+        JBoss EAP 6 -->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.0-api</artifactId>
@@ -116,7 +146,7 @@
         </dependency>
 
         <!-- Import the EJB API, we use provided scope as the API is included in
-            JBoss EAP 6 -->
+        JBoss EAP 6 -->
         <dependency>
             <groupId>org.jboss.spec.javax.ejb</groupId>
             <artifactId>jboss-ejb-api_3.1_spec</artifactId>
@@ -139,7 +169,7 @@
         </dependency>
 
         <!-- Import the JSF API, we use provided scope as the API is included in
-            JBoss EAP 6 -->
+        JBoss EAP 6 -->
         <dependency>
             <groupId>org.jboss.spec.javax.faces</groupId>
             <artifactId>jboss-jsf-api_2.1_spec</artifactId>
@@ -149,7 +179,7 @@
         <!-- Now we declare any tools needed -->
 
         <!-- Annotation processor to generate the JPA 2.0 metamodel classes for
-            typesafe criteria queries -->
+        typesafe criteria queries -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-jpamodelgen</artifactId>
@@ -157,7 +187,7 @@
         </dependency>
 
         <!-- Annotation processor that raising compilation errors whenever constraint
-            annotations are incorrectly used. -->
+        annotations are incorrectly used. -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator-annotation-processor</artifactId>
@@ -173,19 +203,106 @@
 
         <!-- Optional, but highly recommended -->
         <!-- Arquillian allows you to test enterprise code such as EJBs and Transactional(JTA)
-            JPA from JUnit/TestNG -->
+        JPA from JUnit/TestNG -->
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
             <scope>test</scope>
         </dependency>
 
-        <dependency>
+<!--        <dependency>
             <groupId>org.jboss.arquillian.protocol</groupId>
             <artifactId>arquillian-protocol-servlet</artifactId>
+            <scope>test</scope>
+        </dependency>-->
+        
+        <!-- Graphene WebDriver -->
+        <dependency>
+            <groupId>org.jboss.arquillian.graphene</groupId>
+            <artifactId>graphene-webdriver</artifactId>
+            <version>${version.org.jboss.arquillian.graphene2}</version>
+            <type>pom</type>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- Graphene dependency chain - imports all other dependencies required -->
+        <dependency>
+            <groupId>org.jboss.arquillian.graphene</groupId>
+            <artifactId>arquillian-graphene</artifactId>
+            <version>${version.org.jboss.arquillian.graphene2}</version>
+            <type>pom</type>
             <scope>test</scope>
         </dependency>
 
     </dependencies>
+    
+    <profiles>
+        <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>arquillian-container-managed</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.jboss.spec</groupId>
+                    <artifactId>jboss-javaee-web-6.0</artifactId>
+                    <type>pom</type>
+                    <scope>provided</scope>
+                    <exclusions>
+                        <exclusion>
+                            <artifactId>xalan</artifactId>
+                            <groupId>xalan</groupId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+                <dependency>
+                    <groupId>org.jboss.as</groupId>
+                    <artifactId>jboss-as-arquillian-container-managed</artifactId>
+                    <version>7.1.1.Final</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <testResources>
+                    <testResource>
+                        <directory>src/test/resources</directory>
+                    </testResource>
+                    <testResource>
+                        <directory>src/test/resources-jbossas-managed</directory>
+                    </testResource>
+                </testResources>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>unpack</id>
+                                <phase>process-test-classes</phase>
+                                <goals>
+                                    <goal>unpack</goal>
+                                </goals>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>org.jboss.as</groupId>
+                                            <artifactId>jboss-as-dist</artifactId>
+                                            <version>7.1.1.Final</version>
+                                            <type>zip</type>
+                                            <overWrite>false</overWrite>
+                                            <outputDirectory>target</outputDirectory>
+                                        </artifactItem>
+                                    </artifactItems>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        
+    </profiles>
 
 </project>
