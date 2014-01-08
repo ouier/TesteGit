@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arquillian xmlns="http://jboss.org/schema/arquillian"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://jboss.org/schema/arquillian
+        http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+
+	<container qualifier="jbossas-managed" default="true">
+		<configuration>
+			<property name="jbossHome">/home/rafael/dev/jboss-as-7.1.1.Final</property>
+			<property name="javaHome">/usr/lib/jvm/java-7-oracle</property>
+			<property name="javaVmArguments">-Xmx512m -XX:MaxPermSize=128m -Xverify:none -XX:+UseFastAccessorMethods</property>
+			<property name="outputToConsole">true</property>
+		</configuration>
+	</container>
+	<extension qualifier="webdriver">
+		<property name="browser">firefox</property>
+		<property name="remoteReusable">true</property>
+		<property name="remoteAddress">http://localhost:4444/wd/hub</property>
+	</extension>
+
+</arquillian>
