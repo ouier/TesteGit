@@ -17,6 +17,16 @@
 		<property name="browser">firefox</property>
 		<property name="remoteReusable">true</property>
 		<property name="remoteAddress">http://localhost:4444/wd/hub</property>
+<!-- timeout for Graphene.waitGui method - waits for a short time, typically waits for client-side operations-->
+		<property name="waitGuiInterval">1</property>
+<!--timeout for waitAjax - waits for longer time, typically ajax request with no computational load            -->
+		<property name="waitAjaxInterval">2</property>
+<!--timeout for waitModel - waits for a long time, typically database requests or other computationally hard operations-->
+		<property name="waitModelInterval">5</property>
+<!--timeout for request guard methods-->
+		<property name="waitGuardInterval">2</property>
+<!--timeout for installing JavaScript to the page via page extension mechanism-->
+		<property name="javascriptInstallationLimit">5</property>
 	</extension>
 
 </arquillian>
