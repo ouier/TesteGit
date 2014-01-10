@@ -1,6 +1,7 @@
-package jsf;
+package test.jsf;
 
 import java.net.URL;
+
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.junit.Arquillian;
@@ -14,7 +15,8 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import util.TestDeployment;
+
+import test.util.TestDeployment;
 
 @RunWith(Arquillian.class)
 public class TestIndex {

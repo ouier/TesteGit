@@ -1,4 +1,4 @@
-package jsf;
+package test.jsf;
 
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.junit.Arquillian;
