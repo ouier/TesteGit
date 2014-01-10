@@ -1,356 +1,278 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>sp.rafael</groupId>
-    <artifactId>estudo-cdi</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
-
-    <properties>
-
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <!-- JBoss dependency versions -->
-        <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
-
-        <!-- Define the version of the JBoss BOMs we want to import to specify
-        tested stacks. -->
-        <version.jboss.bom.eap>6.2.0.GA</version.jboss.bom.eap>
-
-        <!-- other plugin versions -->
-        <version.surefire.plugin>2.10</version.surefire.plugin>
-        <version.war.plugin>2.1.1</version.war.plugin>
-
-        <!-- maven-compiler-plugin -->
-        <maven.compiler.target>1.6</maven.compiler.target>
-        <maven.compiler.source>1.6</maven.compiler.source>
-        
-        <!-- Arquillian -->
-        <version.org.jboss.arquillian>1.1.1.Final</version.org.jboss.arquillian>
-        <version.org.jboss.arquillian.drone>1.2.1.Final</version.org.jboss.arquillian.drone>
-        <version.org.jboss.arquillian.graphene2>2.0.0.Final</version.org.jboss.arquillian.graphene2>
-        <version.arquillian.drone>1.2.1.Final</version.arquillian.drone>     
-        <version.selenium>2.35.0</version.selenium> 
-               
-    </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            
-            <!-- Arquillian Core dependencies -->
-             <dependency>
-                <groupId>org.jboss.arquillian</groupId>
-                <artifactId>arquillian-bom</artifactId>
-                <version>${version.org.jboss.arquillian}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.arquillian.extension</groupId>
-                <artifactId>arquillian-drone-bom</artifactId>
-                <version>${version.arquillian.drone}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.arquillian.selenium</groupId>
-                <artifactId>selenium-bom</artifactId>
-                <version>${version.selenium}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            
-            <dependency>
-                <groupId>org.jboss.bom.eap</groupId>
-                <artifactId>jboss-javaee-6.0-with-tools</artifactId>
-                <version>${version.jboss.bom.eap}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.bom.eap</groupId>
-                <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
-                <version>${version.jboss.bom.eap}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.spec</groupId>
-                <artifactId>jboss-javaee-web-6.0</artifactId>
-                <version>3.0.0.Final</version>
-                <type>pom</type>
-                <scope>provided</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <build>
-        <finalName>${project.artifactId}</finalName>
-        <plugins>
-            <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>${version.war.plugin}</version>
-                <configuration>
-                    <!-- Java EE 6 doesn't require web.xml, Maven needs to catch up! -->
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
-            <!-- The JBoss AS plugin deploys your war to a local JBoss EAP container -->
-            <!-- To use, run: mvn package jboss-as:deploy -->
-            <plugin>
-                <groupId>org.jboss.as.plugins</groupId>
-                <artifactId>jboss-as-maven-plugin</artifactId>
-                <version>${version.jboss.maven.plugin}</version>
-            </plugin>
-        </plugins>
-    </build>
-
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>sp.rafael</groupId>
+  <artifactId>estudo-cdi</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <properties>
+    <version.org.jboss.arquillian.graphene2>2.0.0.Final</version.org.jboss.arquillian.graphene2>
+    <version.org.jboss.arquillian.drone>1.2.1.Final</version.org.jboss.arquillian.drone>
+    <version.org.jboss.arquillian>1.1.1.Final</version.org.jboss.arquillian>
+    <version.selenium>2.35.0</version.selenium>
+    <version.arquillian.drone>1.2.1.Final</version.arquillian.drone>
+    <maven.compiler.target>1.6</maven.compiler.target>
+    <version.jboss.bom.eap>6.2.0.GA</version.jboss.bom.eap>
+    <version.war.plugin>2.1.1</version.war.plugin>
+    <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <version.surefire.plugin>2.10</version.surefire.plugin>
+    <maven.compiler.source>1.6</maven.compiler.source>
+  </properties>
+  <dependencyManagement>
     <dependencies>
-
-        <!-- First declare the APIs we depend on and need for compilation. All
-        of them are provided by JBoss EAP 6 -->
-
-        <!-- Import the CDI API, we use provided scope as the API is included in
-        JBoss EAP 6 -->
-        <dependency>
-            <groupId>javax.enterprise</groupId>
-            <artifactId>cdi-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Import the Common Annotations API (JSR-250), we use provided scope
-        as the API is included in JBoss EAP 6 -->
-        <dependency>
-            <groupId>org.jboss.spec.javax.annotation</groupId>
-            <artifactId>jboss-annotations-api_1.1_spec</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Import the JAX-RS API, we use provided scope as the API is included
-        in JBoss EAP 6 -->
-        <dependency>
-            <groupId>org.jboss.spec.javax.ws.rs</groupId>
-            <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Import the JPA API, we use provided scope as the API is included in
-        JBoss EAP 6 -->
-        <dependency>
-            <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.0-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Import the EJB API, we use provided scope as the API is included in
-        JBoss EAP 6 -->
-        <dependency>
-            <groupId>org.jboss.spec.javax.ejb</groupId>
-            <artifactId>jboss-ejb-api_3.1_spec</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- JSR-303 (Bean Validation) Implementation -->
-        <!-- Provides portable constraints such as @Email -->
-        <!-- Hibernate Validator is shipped in JBoss EAP 6 -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <!-- Import the JSF API, we use provided scope as the API is included in
-        JBoss EAP 6 -->
-        <dependency>
-            <groupId>org.jboss.spec.javax.faces</groupId>
-            <artifactId>jboss-jsf-api_2.1_spec</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Now we declare any tools needed -->
-
-        <!-- Annotation processor to generate the JPA 2.0 metamodel classes for
-        typesafe criteria queries -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-jpamodelgen</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Annotation processor that raising compilation errors whenever constraint
-        annotations are incorrectly used. -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator-annotation-processor</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Needed for running tests (you may also use TestNG) -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Optional, but highly recommended -->
-        <!-- Arquillian allows you to test enterprise code such as EJBs and Transactional(JTA)
-        JPA from JUnit/TestNG -->
-        <dependency>
-            <groupId>org.jboss.arquillian.junit</groupId>
-            <artifactId>arquillian-junit-container</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-<!--        <dependency>
-            <groupId>org.jboss.arquillian.protocol</groupId>
-            <artifactId>arquillian-protocol-servlet</artifactId>
-            <scope>test</scope>
-        </dependency>-->
-        
-        <!-- Graphene WebDriver -->
-        <dependency>
-            <groupId>org.jboss.arquillian.graphene</groupId>
-            <artifactId>graphene-webdriver</artifactId>
-            <version>${version.org.jboss.arquillian.graphene2}</version>
-            <type>pom</type>
-            <scope>test</scope>
-        </dependency>
-        
-        <!-- Graphene dependency chain - imports all other dependencies required -->
-        <dependency>
-            <groupId>org.jboss.arquillian.graphene</groupId>
-            <artifactId>arquillian-graphene</artifactId>
-            <version>${version.org.jboss.arquillian.graphene2}</version>
-            <type>pom</type>
-            <scope>test</scope>
-        </dependency>
-
+      <dependency>
+        <groupId>org.jboss.arquillian</groupId>
+        <artifactId>arquillian-bom</artifactId>
+        <version>${version.org.jboss.arquillian}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.arquillian.extension</groupId>
+        <artifactId>arquillian-drone-bom</artifactId>
+        <version>${version.arquillian.drone}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.arquillian.selenium</groupId>
+        <artifactId>selenium-bom</artifactId>
+        <version>${version.selenium}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.bom.eap</groupId>
+        <artifactId>jboss-javaee-6.0-with-tools</artifactId>
+        <version>${version.jboss.bom.eap}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.bom.eap</groupId>
+        <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
+        <version>${version.jboss.bom.eap}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.spec</groupId>
+        <artifactId>jboss-javaee-web-6.0</artifactId>
+        <version>3.0.0.Final</version>
+        <type>pom</type>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.spec</groupId>
+        <artifactId>jboss-javaee-6.0</artifactId>
+        <version>3.0.2.Final</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax.transaction</groupId>
+        <artifactId>javax.transaction-api</artifactId>
+        <version>1.2</version>
+      </dependency>
     </dependencies>
-    
-    <profiles>
-        
-        <profile>
-            <id>default</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        
-        <profile>
-            <id>arquillian-container-managed</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.jboss.spec</groupId>
-                    <artifactId>jboss-javaee-web-6.0</artifactId>
-                    <type>pom</type>
-                    <scope>provided</scope>
-                    <exclusions>
-                        <exclusion>
-                            <artifactId>xalan</artifactId>
-                            <groupId>xalan</groupId>
-                        </exclusion>
-                    </exclusions>
-                </dependency>
-                <dependency>
-                    <groupId>org.jboss.as</groupId>
-                    <artifactId>jboss-as-arquillian-container-managed</artifactId>
-                    <version>7.1.1.Final</version>
-                    <scope>test</scope>
-                </dependency>
-            </dependencies>
-            <build>
-                <testResources>
-                    <testResource>
-                        <directory>src/test/resources</directory>
-                    </testResource>
-                    <testResource>
-                        <directory>src/test/resources-jbossas-managed</directory>
-                    </testResource>
-                </testResources>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-dependency-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>unpack</id>
-                                <phase>process-test-classes</phase>
-                                <goals>
-                                    <goal>unpack</goal>
-                                </goals>
-                                <configuration>
-                                    <artifactItems>
-                                        <artifactItem>
-                                            <groupId>org.jboss.as</groupId>
-                                            <artifactId>jboss-as-dist</artifactId>
-                                            <version>7.1.1.Final</version>
-                                            <type>zip</type>
-                                            <overWrite>false</overWrite>
-                                            <outputDirectory>target</outputDirectory>
-                                        </artifactItem>
-                                    </artifactItems>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        
-        <profile>
-            <!-- We add the JBoss repository as we need the JBoss AS connectors 
-            for Arquillian -->
-            <id>remote-arquillian-jboss-as</id>
-            <repositories>
-                <!-- The JBoss Community public repository is a composite repository 
-                of several major repositories -->
-                <!-- see http://community.jboss.org/wiki/MavenGettingStarted-Users -->
-                <repository>
-                    <id>jboss-public-repository</id>
-                    <name>JBoss Repository</name>
-                    <url>http://repository.jboss.org/nexus/content/groups/public</url>
-                    <!-- These optional flags are designed to speed up your builds 
-                    by reducing remote server calls -->
-                    <releases>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>jboss-public-repository</id>
-                    <name>JBoss Repository</name>
-                    <url>http://repository.jboss.org/nexus/content/groups/public</url>
-                    <releases>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </pluginRepository>
-            </pluginRepositories>
-            <!-- An optional Arquillian testing profile that executes tests 
-            in a remote JBoss AS instance -->
-            <!-- Run with: mvn clean test -Parq-jbossas-remote -->
-            <dependencies>
-                <dependency>
-                    <groupId>org.jboss.as</groupId>
-                    <artifactId>jboss-as-arquillian-container-remote</artifactId>
-                    <version>7.1.1.Final</version>
-                    <scope>test</scope>
-                </dependency>
-            </dependencies>
-        </profile>
-        
-    </profiles>
-
+  </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>javax.enterprise</groupId>
+      <artifactId>cdi-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.spec.javax.annotation</groupId>
+      <artifactId>jboss-annotations-api_1.1_spec</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.spec.javax.ws.rs</groupId>
+      <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate.javax.persistence</groupId>
+      <artifactId>hibernate-jpa-2.0-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.spec.javax.ejb</groupId>
+      <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>slf4j-api</artifactId>
+          <groupId>org.slf4j</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.spec.javax.faces</groupId>
+      <artifactId>jboss-jsf-api_2.1_spec</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-jpamodelgen</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator-annotation-processor</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.arquillian.junit</groupId>
+      <artifactId>arquillian-junit-container</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.arquillian.graphene</groupId>
+      <artifactId>graphene-webdriver</artifactId>
+      <version>${version.org.jboss.arquillian.graphene2}</version>
+      <type>pom</type>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.arquillian.graphene</groupId>
+      <artifactId>arquillian-graphene</artifactId>
+      <version>${version.org.jboss.arquillian.graphene2}</version>
+      <type>pom</type>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.transaction</groupId>
+      <artifactId>javax.transaction-api</artifactId>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>${version.war.plugin}</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.jboss.as.plugins</groupId>
+        <artifactId>jboss-as-maven-plugin</artifactId>
+        <version>${version.jboss.maven.plugin}</version>
+      </plugin>
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
+    <profile>
+      <id>arquillian-container-managed</id>
+      <build>
+        <testResources>
+          <testResource>
+            <directory>src/test/resources</directory>
+          </testResource>
+          <testResource>
+            <directory>src/test/resources-jbossas-managed</directory>
+          </testResource>
+        </testResources>
+        <plugins>
+          <plugin>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>unpack</id>
+                <phase>process-test-classes</phase>
+                <goals>
+                  <goal>unpack</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>org.jboss.as</groupId>
+                      <artifactId>jboss-as-dist</artifactId>
+                      <version>7.1.1.Final</version>
+                      <type>zip</type>
+                      <overWrite>false</overWrite>
+                      <outputDirectory>target</outputDirectory>
+                    </artifactItem>
+                  </artifactItems>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+      <dependencies>
+        <dependency>
+          <groupId>org.jboss.spec</groupId>
+          <artifactId>jboss-javaee-web-6.0</artifactId>
+          <type>pom</type>
+          <scope>provided</scope>
+          <exclusions>
+            <exclusion>
+              <artifactId>xalan</artifactId>
+              <groupId>xalan</groupId>
+            </exclusion>
+          </exclusions>
+        </dependency>
+        <dependency>
+          <groupId>org.jboss.as</groupId>
+          <artifactId>jboss-as-arquillian-container-managed</artifactId>
+          <version>7.1.1.Final</version>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+    </profile>
+    <profile>
+      <id>remote-arquillian-jboss-as</id>
+      <dependencies>
+        <dependency>
+          <groupId>org.jboss.as</groupId>
+          <artifactId>jboss-as-arquillian-container-remote</artifactId>
+          <version>7.1.1.Final</version>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+      <repositories>
+        <repository>
+          <releases />
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>jboss-public-repository</id>
+          <name>JBoss Repository</name>
+          <url>http://repository.jboss.org/nexus/content/groups/public</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <releases />
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>jboss-public-repository</id>
+          <name>JBoss Repository</name>
+          <url>http://repository.jboss.org/nexus/content/groups/public</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
 </project>
