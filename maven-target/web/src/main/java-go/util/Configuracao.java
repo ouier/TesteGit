@@ -1,16 +1,20 @@
 package util;
 
-/**
- * Created with IntelliJ IDEA.
- * User: rafael
- * Date: 31/10/13
- * Time: 10:57
- * To change this template use File | Settings | File Templates.
- */
-public class Configuracao implements IConfiguracao{
+import util.base.IConfiguracao;
+import util.decorator.ConfiguracaoDecorator;
 
-    @Override
-    public String getRegional() {
-        return "GO";
-    }
+
+public class Configuracao extends ConfiguracaoDecorator{
+
+	public Configuracao(IConfiguracao config) {
+		super(config);
+	}
+
+	public String getRegional() {
+		return "GO";
+	}
+
+	public String getSMTP() {
+		return "smtp.sistemafieg.org.br";
+	}
 }
