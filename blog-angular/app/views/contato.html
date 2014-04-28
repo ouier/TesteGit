@@ -1,0 +1,27 @@
+<form role="form" ng-controller="ContatoCtrl">
+    <fieldset>
+        <legend>Contato</legend>
+
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" placeholder="Nome" ng-model="contato.nome"/>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Entre com seu e-mail" ng-model="contato.email"/>
+        </div>
+        <div class="form-group">
+            <label for="descricao">Conteúdo do e-mail</label>
+            <textarea class="form-control" id="descricao" placeholder="Escreva aqui o conteúdo do e-mail" ng-model="contato.conteudo"/>
+        </div>
+        <button type="button" class="btn btn-default" ng-click="enviarEmail()">Enviar</button>
+
+    </fieldset>
+
+    <p></p>
+    <p>Nome: {{contato.nome}}</p>
+    <p>Email: {{contato.email}}</p>
+    <p>Conteúdo: {{contato.conteudo}}</p>
+    <p id="status">{{contato.status}}</p>
+
+</form>

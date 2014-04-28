@@ -30,14 +30,24 @@
         <div class="header">
           <ul class="nav nav-pills pull-right">
             <li class="active"><a ng-href="#">Home</a></li>
-            <li><a ng-href="#">Sobre</a></li>
-            <li><a ng-href="#">Contato</a></li>
+            <li><a ng-href="#sobre">Sobre</a></li>
+            <li><a ng-href="#contato">Contato</a></li>
           </ul>
           <h3 class="text-muted">Blog angular</h3>
         </div>
 
-        <!-- CONTEUDO CENTRAL -->
-        <div class="container" ng-view=""></div>
+        <div class="container-fluid">
+            <div class="col-md-2">
+                <div class="row jumbotron">row-1</div>
+                <div class="row jumbotron">row-2</div>
+                <div class="row jumbotron">row-3</div>
+                <div class="row jumbotron">row-4</div>
+            </div>
+            <!-- CONTEUDO CENTRAL -->
+            <div class="container col-md-10" ng-view=""></div>
+        </div>
+
+
 
     </div>
 
@@ -59,6 +69,8 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/controllers.js"></script>
+        <script src="scripts/controllers/sobre.js"></script>
+        <script src="scripts/controllers/contato.js"></script>
         <!-- endbuild -->
 </body>
 </html>

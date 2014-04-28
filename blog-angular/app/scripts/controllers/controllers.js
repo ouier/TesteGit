@@ -8,6 +8,6 @@ blogAngularControllers.controller('MainCtrl', function ($scope) {
       'AngularJS',
       'Karma','Rafael'
     ];
-  });
+});
 
   
