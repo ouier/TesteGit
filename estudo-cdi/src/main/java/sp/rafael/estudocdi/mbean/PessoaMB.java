@@ -2,11 +2,20 @@ package sp.rafael.estudocdi.mbean;
 
 import java.io.Serializable;
 
+import javax.ejb.SessionBean;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.mail.Address;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 import sp.rafael.estudocdi.business.PessoaBO;
 import sp.rafael.estudocdi.model.Pessoa;
@@ -27,10 +36,35 @@ public class PessoaMB implements Serializable{
     private Pessoa pessoa = new Pessoa();
 
 
-    public void listarPessoas(){
+    public void listarPessoas() throws Exception{
+        enviarMail();
         pessoaBo.listarPessoas();
         FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "INFO!", "Nome procurado: "+pessoa.getNome());
         facesContext.addMessage(null, m);
+    }
+
+    public void enviarMail() throws Exception {
+        InitialContext context = new InitialContext();
+
+        Session sss= (Session) context.lookup("java:jboss/mail/Default");
+
+        Message message = new MimeMessage(sss);
+        message.setFrom(new InternetAddress("mailsender@sistemafieg.org.br")); //Remetente
+
+        Address[] toUser = InternetAddress //Destinatário(s)
+                .parse("rafael.hardrock@gmail.com, rafaelsouza@sistemafieg.org.br");
+
+        message.setRecipients(Message.RecipientType.TO, toUser);
+        message.setSubject("Enviando email com JavaMail");//Assunto
+        message.setText("Enviei este email utilizando JavaMail com minha conta TESTE!");
+        /**Método para enviar a mensagem criada*/
+        Transport.send(message);
+
+        System.out.println("Feito!!!");
+
+
+
+
     }
 
 

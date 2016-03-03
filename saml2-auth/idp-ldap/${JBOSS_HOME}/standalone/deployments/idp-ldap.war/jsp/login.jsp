@@ -1,13 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="sp.rafael.AuthorizationFilter" %>
-
 <html>
 <head>
     <title>Autenticação</title>
     <meta charset="utf-8"/>
 </head>
 <body>
-    <p>Realize o login: <%= AuthorizationFilter.getName() %> !!</p>
+    <p>Conteudo!</p>
     <form id="login_form" name="login_form" method="post"
       action="j_security_check" enctype="application/x-www-form-urlencoded">
         <fieldset>

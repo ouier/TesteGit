@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="idp-ldap">
+    <description>ANT FILE para realizar deploy da aplicação em um servidor JBOSS</description>
+      <property environment="env"/>
+
+    <property name="jboss.home" value="${JBOSS_HOME}"></property>
+    <property name="src.folder" value="target/idp-ldap"/>
+    <property name="exploded.war.folder" value="target/ant/${ant.project.name}.war"/>
+    <property name="jboss.deployment.folder" value="${JBOSS_HOME}/standalone/deployments"/>
+    
+    
+    <target name="check-jboss">
+        <echo>Checkando se $JBOSS_HOME foi definido</echo>
+         <fail message="JBOSS_HOME nao informado. Favor informar com -DJBOSS_HOME=caminho_de_instalacao_do_JBoss">
+            <condition>
+                <or>
+                    <equals arg1="${JBOSS_HOME}" arg2=""/>
+                    <not>
+                        <isset property="JBOSS_HOME" />              
+                    </not>    
+                </or>
+            </condition>
+        </fail>
+    </target>
+     
+    <target name="echo-env" depends="check-jboss">
+        <echo message="Utilizando ${JBOSS_HOME}"></echo>        
+    </target>
+    
+    <target name="maven-package" depends="check-jboss">
+        <antcall target="echo-env"/>
+        <exec executable="mvn">
+            <arg value="clean"/>
+            <arg value="package"/>
+        </exec>
+    </target>
+    
+    <target name="clean-target">
+        <echo>Limpando a pasta ${exploded.war.folder}</echo>
+        <delete dir="${exploded.war.folder}" failonerror="false" verbose="true"></delete>
+        <mkdir dir="${exploded.war.folder}"/>
+    </target>
+    
+    <target name="dodeploy">
+        <echo>Realizando deploy no JBoss...</echo>
+        <delete file="/${jboss.deployment.folder}/${ant.project.name}.war.deployed" failonerror="false"/>
+        <touch file="/${jboss.deployment.folder}/${ant.project.name}.war.dodeploy"/>
+    </target>
+    
+    <target name="full-publish" depends="maven-package">
+        <antcall target="echo-env"/>
+        <antcall target="clean-target"/>
+        <echo>Criando o war:exploded</echo>
+        <copy todir="${exploded.war.folder}" verbose="true" overwrite="true">
+            <fileset dir="${src.folder}"></fileset>
+        </copy>
+        <echo>Copiando o war:exploded para ${jboss.deployment.folder}</echo>
+        <copy todir="${JBOSS_HOME}/standalone/deployments/${ant.project.name}.war" verbose="true" overwrite="true">
+            <fileset dir="${exploded.war.folder}"/>
+        </copy>
+        <antcall target="dodeploy"/>
+    </target>
+    
+    <target name="update-resources">
+        <antcall target="check-jboss"/>
+        <antcall target="echo-env"/>
+        <copy todir="${exploded.war.folder}" overwrite="true">
+            <fileset dir="${src.folder}">
+            </fileset>            
+        </copy>
+        <copy todir="${JBOSS_HOME}/standalone/deployments/${ant.project.name}.war" verbose="true" overwrite="true">
+            <fileset dir="${exploded.war.folder}">
+            </fileset>
+        </copy>       
+    </target>
+    
+    
+</project>

@@ -157,11 +157,24 @@
     <dependency>
       <groupId>javax.transaction</groupId>
       <artifactId>javax.transaction-api</artifactId>
+      <scope>provided</scope>
     </dependency>
+      <dependency>
+          <groupId>javax.mail</groupId>
+          <artifactId>mail</artifactId>
+          <version>1.4.7</version>
+          <scope>provided</scope>
+      </dependency>
   </dependencies>
   <build>
     <finalName>${project.artifactId}</finalName>
-    <testSourceDirectory>src/test/java</testSourceDirectory>
+    <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
+    <testSourceDirectory>${basedir}/src/test/java</testSourceDirectory>
+    <resources>
+        <resource>
+            <directory>src/main/src/main/resources</directory>
+        </resource>
+    </resources>
     <plugins>
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
@@ -189,8 +202,8 @@
       <build>
       	<resources>
       		<resource>
-      			<!-- <filtering>true</filtering> -->
-      			<directory>src/test</directory>
+      			<filtering>true</filtering>
+      			<directory>src/main/resources</directory>
       			<excludes>
       				<exclude>**/*test*.*</exclude>
       			</excludes>

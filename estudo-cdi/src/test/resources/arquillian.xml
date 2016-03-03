@@ -7,8 +7,8 @@
 
 	<container qualifier="jbossas-managed" default="true">
 		<configuration>
-			<property name="jbossHome">/home/rafael/dev/jboss-as-7.1.1.Final</property>
-			<property name="javaHome">/usr/lib/jvm/java-7-oracle</property>
+			<property name="jbossHome">/home/rafael/dev/redhat/jboss/eap/jboss-eap-6.3</property>
+			<property name="javaHome">/opt/jdk1.7.0_65</property>
 			<property name="javaVmArguments">-Xmx512m -XX:MaxPermSize=128m -Xverify:none -XX:+UseFastAccessorMethods</property>
 			<property name="outputToConsole">true</property>
 		</configuration>
