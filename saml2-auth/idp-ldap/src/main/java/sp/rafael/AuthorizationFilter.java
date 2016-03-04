@@ -27,7 +27,15 @@ public class AuthorizationFilter implements Filter {
   }
   
   public static String getName(){
-      return "USUARIO";
+      return getSurName()+"USUARIO "+getLastName();
+  }
+  
+  public static String getSurName(){
+      return "Sr. ";
+  }
+  
+  public static String getLastName(){
+      return "USER";
   }
 
   /**

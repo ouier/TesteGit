@@ -30,21 +30,24 @@
     <target name="maven-package" depends="check-jboss">
         <antcall target="echo-env"/>
         <exec executable="mvn">
-            <arg value="clean"/>
+            <!--<arg value="clean"/>-->
             <arg value="package"/>
         </exec>
     </target>
     
     <target name="clean-target">
         <echo>Limpando a pasta ${exploded.war.folder}</echo>
-        <delete dir="${exploded.war.folder}" failonerror="false" verbose="true"></delete>
+        <delete dir="${exploded.war.folder}" failonerror="false" verbose="false"></delete>
+        <echo level="info">Apagando ${JBOSS_HOME}/standalone/deployments/${ant.project.name}.war</echo>
+        <delete dir="${JBOSS_HOME}/standalone/deployments/${ant.project.name}.war" failonerror="false"/>
+        <delete file="${JBOSS_HOME}/standalone/deployments/${ant.project.name}.war" failonerror="false"/>
         <mkdir dir="${exploded.war.folder}"/>
     </target>
     
     <target name="dodeploy">
-        <echo>Realizando deploy no JBoss...</echo>
-        <delete file="/${jboss.deployment.folder}/${ant.project.name}.war.deployed" failonerror="false"/>
-        <touch file="/${jboss.deployment.folder}/${ant.project.name}.war.dodeploy"/>
+        <echo>Realizando deploy no JBoss...</echo>        
+        <delete file="${jboss.deployment.folder}/${ant.project.name}.war.deployed" failonerror="false"/>
+        <touch file="${jboss.deployment.folder}/${ant.project.name}.war.dodeploy"/>
     </target>
     
     <target name="full-publish" depends="maven-package">
@@ -53,7 +56,7 @@
         <echo>Criando o war:exploded</echo>
         <copy todir="${exploded.war.folder}" verbose="true" overwrite="true">
             <fileset dir="${src.folder}"></fileset>
-        </copy>
+        </copy>        
         <echo>Copiando o war:exploded para ${jboss.deployment.folder}</echo>
         <copy todir="${JBOSS_HOME}/standalone/deployments/${ant.project.name}.war" verbose="true" overwrite="true">
             <fileset dir="${exploded.war.folder}"/>

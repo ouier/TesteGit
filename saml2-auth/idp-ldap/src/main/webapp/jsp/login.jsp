@@ -7,11 +7,11 @@
     <meta charset="utf-8"/>
 </head>
 <body>
-    <p>Realize o login: <%= AuthorizationFilter.getName() %> !!</p>
+    <p>Realize o login: <%= AuthorizationFilter.getName() %></p>
     <form id="login_form" name="login_form" method="post"
       action="j_security_check" enctype="application/x-www-form-urlencoded">
         <fieldset>
-            <legend>Digite suas credenciais</legend>
+            <legend>Digite suas credenciais:</legend>
             <label for="login">Login:</label>
             <input type="text" id="login" name="j_username" />
             <label for="senha">Senha:</label>

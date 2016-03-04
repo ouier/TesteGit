@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jboss-web>
-  <security-domain>fieg-ldap</security-domain>
-  <context-root>/idp-ldap</context-root>
-  <valve>
-    <class-name>org.picketlink.identity.federation.bindings.tomcat.idp.IDPWebBrowserSSOValve</class-name>
-  </valve>
-</jboss-web>
